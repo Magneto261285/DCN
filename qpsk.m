@@ -22,7 +22,6 @@ t=T/99:T/99:T; % Time vector for one bit information
 
 
 
-% XXXXXXXXXXXXXXXXXXXXXXX QPSK modulation  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 y=[];
 y_in=[];
 y_qd=[];
@@ -60,12 +59,10 @@ ylabel(' amplitude(volt0');
 
 
 
-% XXXXXXXXXXXXXXXXXXXXXXXXXXXX QPSK demodulation XXXXXXXXXXXXXXXXXXXXXXXXXX
 Rx_data=[];
 Rx_sig=Tx_sig; % Received signal
 for(i=1:1:length(data)/2)
 
-    %%XXXXXX inphase coherent dector XXXXXXX
     Z_in=Rx_sig((i-1)*length(t)+1:i*length(t)).*cos(2*pi*f*t); 
     % above line indicat multiplication of received & inphase carred signal
     
@@ -76,7 +73,6 @@ for(i=1:1:length(data)/2)
        Rx_in_data=0; 
     end
     
-    %%XXXXXX Quadrature coherent dector XXXXXX
     Z_qd=Rx_sig((i-1)*length(t)+1:i*length(t)).*sin(2*pi*f*t);
     %above line indicat multiplication ofreceived & Quadphase carred signal
     
